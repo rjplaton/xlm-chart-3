@@ -4,23 +4,8 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 6vmin;
   pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -30,4 +15,243 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+:root {
+    --primary-color: #07689f;
+    --secondary-color: #a2d5f2;
+    --accent-color: #ff7e67;
+}
+
+body {
+  margin: 30px;
+  font-family: sans-serif;
+  line-height: 1.5;
+  background: ghostwhite;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 32pt;
+    font-weight: 200;
+    padding-top: 30px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 24pt;
+}
+h3 {
+  color: var(--accent-color);
+  font-size: 18pt;
+}
+
+.button {
+  text-align: center;
+  background-color: var(--accent-color);
+  border-radius:6px;
+  padding:8px 24px;
+  border:1px solid grey;
+  display:inline-block;
+  color: whitesmoke;
+}
+
+.button:hover {
+  background-color: var(--primary-color);  
+}
+
+.sidebar {
+  grid-area: sidebar;
+  text-align: center;
+  line-height: 1;
+  height: 300px;
+
+}
+
+.content {
+  grid-area: content;
+  line-height: 1;
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+  line-height: 1;
+}
+
+.footer {
+  grid-area: footer;
+  text-align: center;
+  line-height: 0.8;
+  padding-top: 50px;
+}
+
+.wrapper {
+  color: #444;
+  width: 100%;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-areas:
+   "header"
+   "sidebar"
+   "content"
+   "footer"
+}
+
+@media only screen and (min-width: 550px)  {
+  .wrapper {
+    grid-template-columns: 30% auto;
+    grid-template-areas:
+    "header   header"
+    "sidebar  content"
+    "footer   footer";
+  }
+}
+
+@media only screen and (min-width: 650px)   {
+  .wrapper {
+      grid-gap: 20px;
+      grid-template-columns: 30% auto 120px;
+      grid-template-areas:
+      "header  header  header"
+      "sidebar content content"
+      "footer  footer  footer";
+      max-width: 900px;
+    }
+}
+
+.box {
+  border-color: #444;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+.BarChart {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+.BarChart-bar {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  height: 20px;
+  font-size: small;
+  /* max-width currently set to the maximum % 
+  that the formatting allows to have the bar displayed on a single line */
+  max-width: 68%;
+  border-color: var(--primary-color);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.BarChart-row {
+  font-size: 13.5pt;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 5px;
+  align-items: center;
+
+}
+.BarChart-rowdesc {
+  width: 20%;
+  color: var(--primary-color);
+}
+
+#btcBar:hover {
+  background-image: url(https://dynamic-assets.coinbase.com/e785e0181f1a23a30d9476038d9be91e9f6c63959b538eabbc51a1abc8898940383291eede695c3b8dfaa1829a9b57f5a2d0a16b0523580346c6b8fab67af14b/asset_icons/b57ac673f06a4b0338a596817eb0a50ce16e2059f327dc117744449a47915cb2.png);
+  background-repeat: repeat;
+  background-size: 15px 15px;
+}
+#ethBar:hover {
+  background-image: url(https://cdn.iconscout.com/icon/free/png-256/ethereum-1-283135.png);
+  background-repeat: repeat;
+  background-size: 15px 15px;
+}
+#ltcBar:hover {
+  background-image: url(https://steemitimages.com/640x0/https://upload.wikimedia.org/wikipedia/commons/a/a8/Official_Litecoin_Logo.png);
+  background-repeat: repeat;
+  background-size: 15px 15px;
+}
+#usdBar:hover {
+  background-image: url(https://www.uidownload.com/files/314/62/432/dollar-bill-icon.png);
+  background-repeat: repeat;
+  background-size: 15px 15px;
+
+}
+.nav {
+  background-color: var(--secondary-color);
+  margin: -30px;
+  position: relative;
+  padding: 10px;
+  height: 50px;
+  border-bottom: 2px solid grey;
+  text-align: left;
+}
+
+.nav a {
+  font-weight: bolder;
+  font-size: medium;
+  text-decoration: none;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  text-align: left;
+  margin: 7px;
+}
+
+.BarChart-number span {
+  font-size: small;
+  background-color: white;
+  padding: 1px;
+  padding-right: 3px;
+}
+
+#btcRow {
+  display: flex;
+}
+
+#btcRow-hidden {
+  display: none;
+}
+
+#ethRow {
+  display: flex;
+}
+
+#ethRow-hidden {
+  display: none;
+}
+
+#ltcRow {
+  display: flex;
+}
+
+#ltcRow-hidden {
+  display: none;
+}
+
+#usdRow {
+  display: flex;
+}
+
+#usdRow-hidden {
+  display: none;
+}
+
+.BarChart h2 {
+  text-align: left;
+}
+
+.checkbox {
+  line-height: 2.5;
+  transform:scale(1.5, 1.5);
+  text-align: center;
+  display: block;
+
 }
